@@ -32,10 +32,7 @@ public class OrderReceipt {
 
         buildReceiptHeader(output);
         buildCustomerInformation(output);
-
-        for (LineItem lineItem : order.getLineItems()) {
-            output.append(lineItem.getGeneralInformation());
-        }
+        buildReceiptBody(output);
 
         double totalSalesTax = order.getTotalSalesTax();
         // prints the state tax
@@ -45,6 +42,12 @@ public class OrderReceipt {
         double totalAmount = order.getTotalAmount();
         output.append(TOTAL_AMOUNT).append(WORD_SEPARATOR).append(totalAmount);
         return output.toString();
+    }
+
+    private void buildReceiptBody(StringBuilder output) {
+        for (LineItem lineItem : order.getLineItems()) {
+            output.append(lineItem.getGeneralInformation());
+        }
     }
 
     private void buildCustomerInformation(StringBuilder output) {
