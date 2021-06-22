@@ -1,6 +1,9 @@
 package com.tw.academy.basic.$7_long_method;
 
 public class LineItem {
+
+	private final double TEN_PERCENTAGE_SALES_TAX = 0.10d;
+
 	private String description;
 	private double price;
 	private int quantity;
@@ -27,4 +30,8 @@ public class LineItem {
     double totalAmount() {
         return price * quantity;
     }
+
+	double subSaleTax() {
+		return totalAmount() * TEN_PERCENTAGE_SALES_TAX;
+	}
 }
