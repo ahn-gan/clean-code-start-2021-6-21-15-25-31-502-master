@@ -1,5 +1,7 @@
 package com.tw.academy.basic.$7_long_method;
 
+import java.util.List;
+
 /**
  * This class is a example for bad smell;
  *
@@ -49,6 +51,10 @@ public class OrderReceipt {
         // print total amount
         output.append(TOTAL_AMOUNT).append(WORD_SEPARATOR).append(tot);
         return output.toString();
+    }
+
+    private double getTotalSalesTax(List<LineItem> lineItems) {
+        return lineItems.stream().mapToDouble(LineItem::subSaleTax).sum();
     }
 
     private void buildCustomerInformation(StringBuilder output) {
