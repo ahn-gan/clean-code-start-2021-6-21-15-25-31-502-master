@@ -1,6 +1,5 @@
 package com.tw.academy.basic.$7_long_method;
 
-import java.util.List;
 
 /**
  * This class is a example for bad smell;
@@ -29,15 +28,16 @@ public class OrderReceipt {
     //todo: rename -- Tom
     public String printReceipt() {
         StringBuilder output = new StringBuilder();
-
         buildReceiptHeader(output);
         buildCustomerInformation(output);
         buildReceiptBody(output);
         buildTotalSalesTax(output);
-
-        // print total amount
-        output.append(TOTAL_AMOUNT).append(WORD_SEPARATOR).append(order.getTotalAmount());
+        buildTotalAmount(output);
         return output.toString();
+    }
+
+    private void buildTotalAmount(StringBuilder output) {
+        output.append(TOTAL_AMOUNT).append(WORD_SEPARATOR).append(order.getTotalAmount());
     }
 
     private void buildTotalSalesTax(StringBuilder output) {
