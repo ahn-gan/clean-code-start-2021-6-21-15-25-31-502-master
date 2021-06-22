@@ -34,19 +34,18 @@ public class OrderReceipt {
         buildCustomerInformation(output);
 
         // prints lineItems
-        double totSalesTx = 0d;
         double tot = 0d;
         for (LineItem lineItem : order.getLineItems()) {
             output.append(lineItem.getGeneralInformation());
             double salesTax = lineItem.subSaleTax();
-            totSalesTx += salesTax;
 
             // calculate total amount of lineItem = price * quantity + 10 % sales tax
             tot += lineItem.totalAmount() + salesTax;
         }
 
+        double totalSalesTax = getTotalSalesTax(order.getLineItems());
         // prints the state tax
-        output.append(SALES_TAX).append(WORD_SEPARATOR).append(totSalesTx);
+        output.append(SALES_TAX).append(WORD_SEPARATOR).append(totalSalesTax);
 
         // print total amount
         output.append(TOTAL_AMOUNT).append(WORD_SEPARATOR).append(tot);

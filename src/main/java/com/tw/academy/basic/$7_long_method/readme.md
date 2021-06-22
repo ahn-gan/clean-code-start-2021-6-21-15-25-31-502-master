@@ -9,3 +9,4 @@
 7. 为LineItem添加拼接基本信息的方法
 8. 替换OrderReceipt中获取LineItem基本信息
 9. 在OrderReceipt中添加计算总销售税率的方法
+9. 替换OrderReceipt中计算总销售税率的代码
