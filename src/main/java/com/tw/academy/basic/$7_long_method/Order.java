@@ -28,4 +28,8 @@ public class Order {
     public double getTotalSalesTax() {
         return lineItems.stream().mapToDouble(LineItem::subSaleTax).sum();
     }
+
+    public double getTotalAmount() {
+        return lineItems.stream().mapToDouble(LineItem::totalAmount).sum() + getTotalSalesTax();
+    }
 }

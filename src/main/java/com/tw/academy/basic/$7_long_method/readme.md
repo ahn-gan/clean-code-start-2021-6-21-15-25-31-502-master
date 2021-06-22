@@ -11,3 +11,4 @@
 9. 在OrderReceipt中添加计算总销售税率的方法
 10. 替换OrderReceipt中计算总销售税率的代码
 11. 在Order中添加计算总销售税率方法，并替换OrderReceipt中获取总销售税率的代码
+12. 在Order中添加计算销售总额方法，并替换OrderReceipt中获取销售总额的代码
