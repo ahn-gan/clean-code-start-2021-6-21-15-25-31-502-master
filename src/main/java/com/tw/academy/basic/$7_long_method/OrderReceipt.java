@@ -8,9 +8,12 @@ package com.tw.academy.basic.$7_long_method;
  * @since   2018-1-1
  */
 public class OrderReceipt {
-    private static final String PRINTING_ORDER_RECEIPT_HEADER = "======Printing Orders======\n";
+    private static final String PRINTING_ORDER_RECEIPT_HEADER = "======Printing Orders======";
     private static final String SALES_TAX = "Sales Tax";
     private static final String TOTAL_AMOUNT = "Total Amount";
+    public static final double TEN_PERCENTAGE_SALES_TAX = 0.10d;
+    public static final char WORD_SEPARATOR = '\t';
+    public static final char LINE_SEPARATOR = '\n';
     private Order order;
 
     public OrderReceipt(Order order) {
@@ -34,16 +37,16 @@ public class OrderReceipt {
         double tot = 0d;
         for (LineItem lineItem : order.getLineItems()) {
             output.append(lineItem.getDescription());
-            output.append('\t');
+            output.append(WORD_SEPARATOR);
             output.append(lineItem.getPrice());
-            output.append('\t');
+            output.append(WORD_SEPARATOR);
             output.append(lineItem.getQuantity());
-            output.append('\t');
+            output.append(WORD_SEPARATOR);
             output.append(lineItem.totalAmount());
-            output.append('\n');
+            output.append(LINE_SEPARATOR);
 
             // calculate sales tax @ rate of 10%
-            double salesTax = lineItem.totalAmount() * .10;
+            double salesTax = lineItem.totalAmount() * TEN_PERCENTAGE_SALES_TAX;
             totSalesTx += salesTax;
 
             // calculate total amount of lineItem = price * quantity + 10 % sales tax
@@ -51,10 +54,10 @@ public class OrderReceipt {
         }
 
         // prints the state tax
-        output.append(SALES_TAX).append('\t').append(totSalesTx);
+        output.append(SALES_TAX).append(WORD_SEPARATOR).append(totSalesTx);
 
         // print total amount
-        output.append(TOTAL_AMOUNT).append('\t').append(tot);
+        output.append(TOTAL_AMOUNT).append(WORD_SEPARATOR).append(tot);
         return output.toString();
     }
 
@@ -64,6 +67,6 @@ public class OrderReceipt {
     }
 
     private void buildReceiptHeader(StringBuilder output) {
-        output.append(PRINTING_ORDER_RECEIPT_HEADER);
+        output.append(PRINTING_ORDER_RECEIPT_HEADER + LINE_SEPARATOR);
     }
 }
