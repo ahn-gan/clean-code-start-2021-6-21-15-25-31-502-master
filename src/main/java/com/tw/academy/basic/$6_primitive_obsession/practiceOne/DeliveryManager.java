@@ -5,8 +5,8 @@ public class DeliveryManager {
     Address fromAddress;
 
     public DeliveryManager(String fromAddress, String toAddress) {
-        this.toAddress = new Address(getCity(toAddress), getProvince(toAddress));
-        this.fromAddress = new Address(getCity(fromAddress), getProvince(fromAddress));
+        this.toAddress = new Address(toAddress.substring(toAddress.indexOf("省") + 1, toAddress.indexOf("市")), toAddress.substring(0, toAddress.indexOf("省")));
+        this.fromAddress = new Address(fromAddress.substring(fromAddress.indexOf("省") + 1, fromAddress.indexOf("市")), fromAddress.substring(0, fromAddress.indexOf("省")));
     }
 
     public DeliverCenter allocate(){
@@ -19,11 +19,4 @@ public class DeliveryManager {
         return DeliverCenter.FOREIGN;
     }
 
-    private String getCity(String address) {
-        return address.substring(address.indexOf("省") + 1, address.indexOf("市"));
-    }
-
-    private String getProvince(String address) {
-        return address.substring(0, address.indexOf("省"));
-    }
 }

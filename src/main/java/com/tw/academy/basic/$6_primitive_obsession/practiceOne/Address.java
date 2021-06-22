@@ -11,14 +11,6 @@ public class Address {
         this.province = province;
     }
 
-    public void setCity(String city) {
-        this.city = city;
-    }
-
-    public void setProvince(String province) {
-        this.province = province;
-    }
-
     public String getCity() {
         return city;
     }
