@@ -1,25 +1,25 @@
 package com.tw.academy.basic.$5_data_clumps;
 
 public class User {
-    private final String buyerName;
-    private final String buyerPhoneNumber;
-    private final String buyerAddress;
+    private final String name;
+    private final String phoneNumber;
+    private final String address;
 
-    public User(String buyerName, String buyerPhoneNumber, String buyerAddress) {
-        this.buyerName = buyerName;
-        this.buyerPhoneNumber = buyerPhoneNumber;
-        this.buyerAddress = buyerAddress;
+    public User(String name, String phoneNumber, String address) {
+        this.name = name;
+        this.phoneNumber = phoneNumber;
+        this.address = address;
     }
 
-    public String getBuyerName() {
-        return buyerName;
+    public String getName() {
+        return name;
     }
 
-    public String getBuyerPhoneNumber() {
-        return buyerPhoneNumber;
+    public String getPhoneNumber() {
+        return phoneNumber;
     }
 
-    public String getBuyerAddress() {
-        return buyerAddress;
+    public String getAddress() {
+        return address;
     }
 }

@@ -17,12 +17,12 @@ public class Parcel {
     public String confirmReceiver(){
         return String.format("Please confirm receiver information: receiver name is %s, " +
                         "receiver phone number is %s and receiver address is %s.\n",
-                this.receiver.getBuyerName(), this.receiver.getBuyerPhoneNumber(), this.receiver.getBuyerAddress());
+                this.receiver.getName(), this.receiver.getPhoneNumber(), this.receiver.getAddress());
     }
 
     public String confirmSender(){
         return String.format("Please confirm sender information: sender name is %s, " +
                         "sender phone number is %s and sender address is %s.\n",
-                this.sender.getBuyerName(), this.sender.getBuyerPhoneNumber(), this.sender.getBuyerAddress());
+                this.sender.getName(), this.sender.getPhoneNumber(), this.sender.getAddress());
     }
 }
