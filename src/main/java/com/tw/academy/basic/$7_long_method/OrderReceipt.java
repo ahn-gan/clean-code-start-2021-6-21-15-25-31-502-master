@@ -33,13 +33,15 @@ public class OrderReceipt {
         buildReceiptHeader(output);
         buildCustomerInformation(output);
         buildReceiptBody(output);
-
-        // prints the state tax
-        output.append(SALES_TAX).append(WORD_SEPARATOR).append(order.getTotalSalesTax());
+        buildTotalSalesTax(output);
 
         // print total amount
         output.append(TOTAL_AMOUNT).append(WORD_SEPARATOR).append(order.getTotalAmount());
         return output.toString();
+    }
+
+    private void buildTotalSalesTax(StringBuilder output) {
+        output.append(SALES_TAX).append(WORD_SEPARATOR).append(order.getTotalSalesTax());
     }
 
     private void buildReceiptBody(StringBuilder output) {

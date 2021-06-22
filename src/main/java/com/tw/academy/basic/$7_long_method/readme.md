@@ -14,3 +14,4 @@
 12. 在Order中添加计算销售总额方法，并替换OrderReceipt中获取销售总额的代码
 13. 抽取OrderReceipt中打印LineItem详细信息的方法
 14. inline OrderReceipt中使用总销售税额和总销售额的代码
+14. 抽取OrderReceipt中打印总销售税额方法
