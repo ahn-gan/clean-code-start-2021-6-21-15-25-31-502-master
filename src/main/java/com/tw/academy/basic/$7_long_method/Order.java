@@ -24,4 +24,8 @@ public class Order {
     public List<LineItem> getLineItems() {
         return lineItems;
     }
+
+    public double getTotalSalesTax() {
+        return lineItems.stream().mapToDouble(LineItem::subSaleTax).sum();
+    }
 }

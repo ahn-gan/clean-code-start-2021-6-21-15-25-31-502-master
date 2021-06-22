@@ -43,17 +43,13 @@ public class OrderReceipt {
             tot += lineItem.totalAmount() + salesTax;
         }
 
-        double totalSalesTax = getTotalSalesTax(order.getLineItems());
+        double totalSalesTax = order.getTotalSalesTax();
         // prints the state tax
         output.append(SALES_TAX).append(WORD_SEPARATOR).append(totalSalesTax);
 
         // print total amount
         output.append(TOTAL_AMOUNT).append(WORD_SEPARATOR).append(tot);
         return output.toString();
-    }
-
-    private double getTotalSalesTax(List<LineItem> lineItems) {
-        return lineItems.stream().mapToDouble(LineItem::subSaleTax).sum();
     }
 
     private void buildCustomerInformation(StringBuilder output) {
