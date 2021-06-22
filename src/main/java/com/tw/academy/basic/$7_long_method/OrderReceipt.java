@@ -25,37 +25,36 @@ public class OrderReceipt {
         return order.getCustomerName();
     }
 
-    //todo: rename -- Tom
-    public String printReceipt() {
-        StringBuilder output = new StringBuilder();
-        buildReceiptHeader(output);
-        buildCustomerInformation(output);
-        buildReceiptBody(output);
-        buildTotalSalesTax(output);
-        buildTotalAmount(output);
-        return output.toString();
+    public String buildReceipt() {
+        StringBuilder receipt = new StringBuilder();
+        buildReceiptHeader(receipt);
+        buildCustomerInformation(receipt);
+        buildReceiptBody(receipt);
+        buildTotalSalesTax(receipt);
+        buildTotalAmount(receipt);
+        return receipt.toString();
     }
 
-    private void buildTotalAmount(StringBuilder output) {
-        output.append(TOTAL_AMOUNT).append(WORD_SEPARATOR).append(order.getTotalAmount());
+    private void buildTotalAmount(StringBuilder receipt) {
+        receipt.append(TOTAL_AMOUNT).append(WORD_SEPARATOR).append(order.getTotalAmount());
     }
 
-    private void buildTotalSalesTax(StringBuilder output) {
-        output.append(SALES_TAX).append(WORD_SEPARATOR).append(order.getTotalSalesTax());
+    private void buildTotalSalesTax(StringBuilder receipt) {
+        receipt.append(SALES_TAX).append(WORD_SEPARATOR).append(order.getTotalSalesTax());
     }
 
-    private void buildReceiptBody(StringBuilder output) {
+    private void buildReceiptBody(StringBuilder receipt) {
         for (LineItem lineItem : order.getLineItems()) {
-            output.append(lineItem.getGeneralInformation());
+            receipt.append(lineItem.getGeneralInformation());
         }
     }
 
-    private void buildCustomerInformation(StringBuilder output) {
-        output.append(order.getCustomerName());
-        output.append(order.getCustomerAddress());
+    private void buildCustomerInformation(StringBuilder receipt) {
+        receipt.append(order.getCustomerName());
+        receipt.append(order.getCustomerAddress());
     }
 
-    private void buildReceiptHeader(StringBuilder output) {
-        output.append(PRINTING_ORDER_RECEIPT_HEADER + LINE_SEPARATOR);
+    private void buildReceiptHeader(StringBuilder receipt) {
+        receipt.append(PRINTING_ORDER_RECEIPT_HEADER + LINE_SEPARATOR);
     }
 }

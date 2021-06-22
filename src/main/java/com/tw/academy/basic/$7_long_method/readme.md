@@ -16,3 +16,4 @@
 14. inline OrderReceipt中使用总销售税额和总销售额的代码
 15. 抽取OrderReceipt中打印总销售税额方法
 16. 抽取OrderReceipt中打印销售总额方法
+16. 重命名OrderReceipt 方法 printReceipt为 buildReceipt，重命名变量 output 为 receipt
