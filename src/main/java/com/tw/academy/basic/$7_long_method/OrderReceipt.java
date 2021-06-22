@@ -34,13 +34,11 @@ public class OrderReceipt {
         buildCustomerInformation(output);
         buildReceiptBody(output);
 
-        double totalSalesTax = order.getTotalSalesTax();
         // prints the state tax
-        output.append(SALES_TAX).append(WORD_SEPARATOR).append(totalSalesTax);
+        output.append(SALES_TAX).append(WORD_SEPARATOR).append(order.getTotalSalesTax());
 
         // print total amount
-        double totalAmount = order.getTotalAmount();
-        output.append(TOTAL_AMOUNT).append(WORD_SEPARATOR).append(totalAmount);
+        output.append(TOTAL_AMOUNT).append(WORD_SEPARATOR).append(order.getTotalAmount());
         return output.toString();
     }
 
